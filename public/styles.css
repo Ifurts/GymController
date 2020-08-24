@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #6666ff
+}
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-color);
+}
+
+
+header {
+    background-color: white;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+}
+
+.links a {
+
+    font-size: 24px;
+    color: black;
+    box-sizing: border-box;
+    text-decoration: none;
+    position: relative;
+}
+
+.links a + a {
+    margin-left: 100px;
+}
+
+.links a:hover {
+    color: #0000b3;
+
+}
+
+.links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color:   #0000b3;
+    position: absolute;
+    left: 0px;
+    bottom: -3px;
+}
+
+.links a:hover::after {
+    width: 100%;
+    transition: width 700ms ease-in-out;
+}
+
+
+/*with "active" class */
+
+.links a.active {
+    color: #0000b3;
+    font-weight: bold;
+}
+
+/* .links a.active:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0px;
+    bottom: -3px;
+} */
+
+/* CARD */
+
+.card {
+    background-color: white;
+    width: 800px;
+    min-height: 400px;
+    margin: 45px auto;
+    /* grid split in two */
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* shadow */
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.4);
+    /* animation */
+    ;
+
+    animation: up 700MS ease-out ;
+    
+
+    
+
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* details */
+
+.details {
+    padding: 32px;
+}
+
+.details .item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 16px 0;
+}
+
+.details .item:last-child {
+    border: none;
+
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+    color: black;
+
+}
+
+.details .item div:nth-child(2) {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.details .item span {
+    padding: 8px 16px;
+    background-color: yellow;
+    border-radius: 16px;
+    margin-right: 4px;
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.details .item div:nth-child(1) strong ,em {
+    background-color: #ff704d;
+    border-radius: 4px;
+    padding: 0px 16px;
+    
+}
