@@ -9,7 +9,7 @@
     border: 0;
     padding: 0;
 }
-body {
+html, body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--primary-color);
 }
@@ -77,7 +77,7 @@ header {
 
 .card {
     background-color: white;
-    width: 800px;
+    max-width: 800px;
     min-height: 400px;
     margin: 45px auto;
     /* grid split in two */
@@ -86,8 +86,6 @@ header {
     /* shadow */
     box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.4);
     /* animation */
-    ;
-
     animation: up 700MS ease-out ;
     
 
@@ -117,10 +115,6 @@ header {
     padding: 16px 0;
 }
 
-.details .item:last-child {
-    border: none;
-
-}
 
 .details h3,
 .details .item div:nth-child(1) {
@@ -159,4 +153,34 @@ header {
     border-radius: 4px;
     padding: 0px 16px;
     
+}
+/* form */
+
+input {
+    width: 100%;
+    outline: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="submit"] {
+    padding: 8px 32px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 16px;
+    font-weight: bold;
+    width: 100%;
 }
