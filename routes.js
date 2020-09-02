@@ -17,6 +17,8 @@ routes.get('/instructors/create', function(req, res){
     
 })
 
+routes.get('/instructors/:id', instructors.show)
+
 routes.post('/instructors/create', instructors.post )
 
 routes.get('/students', function(req, res){

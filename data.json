@@ -1,3 +1,34 @@
 {
-  "instructors": []
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "https://google.com",
+      "name": "Romero Brito",
+      "birth": 730598400000,
+      "education_level": "Diploma",
+      "class_modality": "presential",
+      "fit_area": "Bodybuilding, crossfit",
+      "created_at": 1598833471673
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://google.com",
+      "name": "fulana",
+      "birth": 642988800000,
+      "education_level": "Degree",
+      "class_modality": "Home-Study",
+      "fit_area": "qualquer area, e outra ai",
+      "created_at": 1599004332145
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://google.com",
+      "name": "asass",
+      "birth": 642988800000,
+      "education_level": "secondary-school",
+      "class_modality": "Home-Study",
+      "fit_area": "area",
+      "created_at": 1599014144660
+    }
+  ]
 }

@@ -1,0 +1,54 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<div class="card">
+    <section class="avatar" style="background: url({{ instructor.avatar_url }}) no-repeat center center / cover"></section>
+    <section class="details">
+
+        <h3>About</h3>
+
+        <div class="item">
+            <div>Instructor</div>
+            <div>{{ instructor.name }}</div>
+        </div>
+
+        <div class="item">
+            <div>Age</div>
+            <div>{{instructor.age}}</div>
+        </div>
+
+        <div class="item">
+            <div>Education level</div>
+            <div>{{ instructor.education_level }}</div>
+        </div>
+
+        <div class="item">
+            <div>Fit Areas</div>
+            <div>
+            
+
+                <span>{{ instructor.fit_area }}</span>
+                
+                
+            </div>
+        </div>
+
+        <div class="item">
+            <div>
+                <strong> Registered professional since</strong>
+            </div>
+
+            <div>
+                <em>{{ instructor.created_at }}</em>
+            </div>
+        </div>
+
+
+        
+
+
+    </section>
+</div>
+
+{% endblock content %}
