@@ -23,7 +23,7 @@ exports.show = function(req, res) {
     }
 
     
-    return res.render("instructors/show", { instructor: foundInstructor })
+    return res.render("instructors/show", { instructor:instructor })
 }
 
 //create
