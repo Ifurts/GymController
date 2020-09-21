@@ -23,11 +23,22 @@
     <div>Education level</div>
     <div>
         <select name="education_level">
-            <option value="secondary-school">Secondary School</option>
-            <option value="certificate">Certificate</option>
-            <option value="diploma">Diploma</option>
-            <option value="degree">Degree</option>
-            <option value="master">Master</option>
+
+            <option value="secondary-school"
+             {% if instructor.education_level == 'secondary-school' %} selected="selected" {% endif %}>Secondary School</option>
+
+            <option value="certificate"
+            {% if instructor.education_level == 'certificate' %} selected="selected" {% endif %}>Certificate</option>
+
+            <option value="diploma"
+             {% if instructor.education_level == 'diploma' %} selected="selected" {% endif %}>Diploma</option>
+
+            <option value="degree"
+             {% if instructor.education_level == 'degree' %} selected="selected" {% endif %}>Degree</option>
+
+            <option value="master"
+             {% if instructor.education_level == 'master' %} selected="selected" {% endif %}>Master</option>
+        
         </select>
     </div>
 </div>

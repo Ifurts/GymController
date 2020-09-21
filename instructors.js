@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = require("./data.json")
-const { age, date } = require('./utils')
+const { age, date, graduation } = require('./utils')
 const Intl = require('intl')
 
 
@@ -84,7 +84,8 @@ exports.edit = function(req, res){
     const instructor = {
 
         ...foundInstructor,
-        birth:date(foundInstructor.birth)
+        birth:date(foundInstructor.birth),
+        education_level: graduation(foundInstructor.education_level)
 
     }
 
