@@ -1,0 +1,97 @@
+<div class="item">
+    <div>Avatar URL</div>
+    <div>
+        <input 
+        type="url" 
+        name="avatar_url" 
+        placeholder="http://" 
+        value="{{student.avatar_url}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Full Name</div>
+    <div>
+        <input 
+        type="text" 
+        placeholder="Type here" 
+        name="name" 
+        value="{{student.name}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Date of birth</div>
+    <div>
+        <input 
+        type="date" 
+        name="birth" 
+        value="{{student.birth}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Education level</div>
+    <div>
+        <select name="education_level">
+
+            <option value="Secondary School"
+             {% if student.education_level == 'Secondary School' %} selected="selected" {% endif %}
+             >Secondary School</option>
+
+            <option value="Certificate"
+            {% if student.education_level == 'Certificate' %} selected="selected" {% endif %}
+            >Certificate</option>
+
+            <option value="Diploma"
+             {% if student.education_level == 'Diploma' %} selected="selected" {% endif %}
+             >Diploma</option>
+
+            <option value="Degree"
+             {% if student.education_level == 'Degree' %} selected="selected" {% endif %}
+             >Degree</option>
+
+            <option value="Master"
+             {% if student.education_level == 'Master' %} selected="selected" {% endif %}
+             >Master</option>
+        
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Classes per week</div>
+    <div>
+        <input 
+        type="radio" 
+        value="2x" 
+        name="class_perweek" 
+        {% if student.class_perweek == '2x'%} checked="checked" {% endif %}
+        >Two times per week</label>
+        <input 
+        type="radio" 
+        value="3x" 
+        name="class_perweek" 
+        {% if student.class_perweek == '3x'%} checked="checked" {% endif %}
+        >Three times per week</label>
+        <input 
+        type="radio" 
+        value="5x" 
+        name="class_perweek" 
+        {% if student.class_perweek == '5x'%} checked="checked" {% endif %}
+        >Five times per week</label>
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div>
+        <input 
+        type="email" 
+        name="email"
+        placeholder="example@email.com" 
+        value="{{ student.email }}">
+    </div>
+</div>
+
+<button type="submit">Save</button>

@@ -24,20 +24,20 @@
     <div>
         <select name="education_level">
 
-            <option value="secondary-school"
-             {% if instructor.education_level == 'secondary-school' %} selected="selected" {% endif %}>Secondary School</option>
+            <option value="Secondary School"
+             {% if instructor.education_level == 'Secondary School' %} selected="selected" {% endif %}>Secondary School</option>
 
-            <option value="certificate"
-            {% if instructor.education_level == 'certificate' %} selected="selected" {% endif %}>Certificate</option>
+            <option value="Certificate"
+            {% if instructor.education_level == 'Certificate' %} selected="selected" {% endif %}>Certificate</option>
 
-            <option value="diploma"
-             {% if instructor.education_level == 'diploma' %} selected="selected" {% endif %}>Diploma</option>
+            <option value="Diploma"
+             {% if instructor.education_level == 'Diploma' %} selected="selected" {% endif %}>Diploma</option>
 
-            <option value="degree"
-             {% if instructor.education_level == 'degree' %} selected="selected" {% endif %}>Degree</option>
+            <option value="Degree"
+             {% if instructor.education_level == 'Degree' %} selected="selected" {% endif %}>Degree</option>
 
-            <option value="master"
-             {% if instructor.education_level == 'master' %} selected="selected" {% endif %}>Master</option>
+            <option value="Master"
+             {% if instructor.education_level == 'Master' %} selected="selected" {% endif %}>Master</option>
         
         </select>
     </div>
@@ -54,9 +54,8 @@
 <div class="item">
     <div>Professional practice area</div>
     <div>
-        <input type="text" placeholder="Separate the areas with a
-        comma" name="fit_area" value="{{ instructor.fit_area }}">
+        <input type="text" placeholder="Separate the areas with a comma" name="fit_area" value="{{ instructor.fit_area }}">
     </div>
 </div>
 
-<button type="submit">Salvar</button>
+<button type="submit">Save</button>

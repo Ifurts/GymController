@@ -31,19 +31,19 @@ module.exports = {
 
     graduation: function(graduation) {
 
-        let education_level;
+        let education_level = "";
 
-        switch (education_level) {
+        switch (graduation) {
 
-            case "secondary-school":
+            case "Secondary School":
                 education_level = "Secondary School";
             break;
 
-            case "certificate":
+            case "Certificate":
                 education_level = "Certificate"
             break;
 
-            case "diploma":
+            case "Diploma":
                 education_level = "Diploma"
             break;
 
@@ -51,15 +51,15 @@ module.exports = {
                 education_level = "Degree"
             break;
 
-            case "master":
+            case "Master":
                 education_level = "Master"
             break;
 
             default:
                 break;     
         }
-         console.log(graduation)
-         return graduation
+         
+         return education_level
     }
 
 }
