@@ -7,20 +7,22 @@
     <table width = "100%">
         <thead>
             <tr>
-                <th>Instructor</th>
-                <th>Fit area</th>
+                <th>Student</th>
+                <th>Classes per week</th>
+                <th>Email</th>
                 <th>Action</th>
             </tr>
         </thead>
 
         <tbody>
-            {% for instructor in instructors %}
+            {% for student in students %}
             <tr>
                 <td>
-                    <span style="background-image: url({{instructor.avatar_url}})"></span>
-                    {{instructor.name}}</td>
-                <td><span>{{instructor.fit_area}}</span></td>
-                <td><a href="/instructors/{{instructor.id}}">See Profile</a></td>
+                    <span style="background-image: url({{student.avatar_url}})"></span>
+                    {{student.name}}</td>
+                <td>{{student.class_perweek}}</td>
+                <td>{{student.email}}</td>
+                <td><a href="/students/{{student.id}}">See Profile</a></td>
             </tr>
             {% endfor %}
         </tbody>

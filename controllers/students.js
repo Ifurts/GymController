@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = require("../data.json")
-const { age, date, graduation } = require('../utils')
+const { date, graduation } = require('../utils')
 const Intl = require('intl')
 
 
@@ -22,7 +22,7 @@ exports.show = function(req, res) {
 
     const student = {
         ...foundStudent,
-        age: age(foundStudent.birth),
+        birth: date(foundStudent.birth).birthDay,
     }
 
     
@@ -59,8 +59,8 @@ exports.post = function(req, res) {
 
 
     data.students.push({
-        ...req.body,
         id,
+        ...req.body,
         birth         
     })
 
@@ -91,7 +91,7 @@ exports.edit = function(req, res){
     const student = {
 
         ...foundStudent,
-        birth:date(foundStudent.birth),
+        birth:date(foundStudent.birth).iso,
         education_level: graduation(foundStudent.education_level)
 
     }

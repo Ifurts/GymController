@@ -3,49 +3,45 @@
 {% block content %}
 
 <div class="card">
-    <section class="avatar" style="background: url({{ instructor.avatar_url }}) no-repeat center center / cover"></section>
+    <section class="avatar" style="background: url({{ student.avatar_url }}) no-repeat center center / cover"></section>
     <section class="details">
 
-        <h3>About</h3>
+        <h3>Student Profile</h3>
 
         <div class="item">
-            <div>Instructor</div>
-            <div>{{ instructor.name }}</div>
+            <div>Student</div>
+            <div>{{ student.name }}</div>
         </div>
 
         <div class="item">
-            <div>Age</div>
-            <div>{{instructor.age}}</div>
+            <div>Birthday</div>
+            <div>{{student.birth}}</div>
         </div>
 
         <div class="item">
             <div>Education level</div>
-            <div>{{ instructor.education_level }}</div>
+            <div>{{ student.education_level }}</div>
         </div>
 
         <div class="item">
-            <div>Fit Areas</div>
+            <div>Classes per week</div>
             <div>
-            
-
-                <span>{{ instructor.fit_area }}</span>
-                
-                
+                {{ student.class_perweek }}  
             </div>
         </div>
 
         <div class="item">
             <div>
-                <strong> Registered professional since</strong>
+                Email
             </div>
 
             <div>
-                <em>{{ instructor.created_at }}</em>
+                {{ student.email }}
             </div>
         </div>
 
 
-        <a href="/instructors/{{ instructor.id }}/edit" class="buttom">Edit profile</a>
+        <a href="/students/{{ student.id }}/edit" class="buttom">Edit profile</a>
 
 
     </section>

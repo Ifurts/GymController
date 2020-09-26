@@ -1,5 +1,24 @@
 {
-  "students": [],
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://source.unsplash.com/collection/8325170/900x900",
+      "name": "Roberval Souza",
+      "birth": 951436800000,
+      "education_level": "Diploma",
+      "class_perweek": "Three times per week",
+      "email": "example@email.com"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://scontent.fssa7-1.fna.fbcdn.net/v/t1.0-9/22687689_1451471764973738_4471823492989573492_n.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=IyV-ID6p01QAX9v1WuG&_nc_ht=scontent.fssa7-1.fna&oh=5b7e11accdc0f3db626bf514d674ea78&oe=5F9463C4",
+      "name": "Bianca Romero",
+      "birth": 992822400000,
+      "education_level": "Secondary School",
+      "class_perweek": "Five times per week",
+      "email": "bianca@gmail.com"
+    }
+  ],
   "instructors": [
     {
       "id": 1,

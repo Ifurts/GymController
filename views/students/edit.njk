@@ -7,7 +7,7 @@
 
 
     <div class="card">
-        <section class="avatar" style="background: url(https://source.unsplash.com/collection/8325170/900x900) no-repeat center center / cover">
+        <section class="avatar" style="background: url({{student.avatar_url}}) no-repeat center center / cover">
         </section>
            
         <section class="details">
@@ -26,6 +26,19 @@
                 <input type="hidden" name="id" value="{{student.id}}">
                 <button type="submit">Delete profile</button>
             </form>
+
+
+            <script>
+                
+                const formDelete = document.querySelector("#form-delete")
+                formDelete.addEventListener("submit", function(event) {
+                    const confirmation = confirm("Do you really wish to delete your profile?")
+                    if(!confirmation) {
+                        event.preventDefault()
+                    }
+                })
+
+            </script>
 
         </section>
     
