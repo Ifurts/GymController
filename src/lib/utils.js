@@ -1,6 +1,6 @@
 module.exports = {
 
-    age: function(timestamp) {
+    age(timestamp) {
 
         const today = new Date()
         const birthDate = new Date(timestamp)
@@ -19,7 +19,7 @@ module.exports = {
 
     },
 
-    date: function(timestamp) {
+    date(timestamp) {
 
         const date = new Date(timestamp)
 
