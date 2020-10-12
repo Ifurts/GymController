@@ -40,15 +40,14 @@ module.exports = {
             req.body.education_level,
             req.body.class_modality,
             req.body.fit_area,
-            req.body.created_at,
             date(Date.now()).iso,
         ]
 
 
         db.query(query, values, function(err, results){
-            console.log(err)
-            console.log(results)
-            return
+            if(err) return res.send("Database Error")
+            
+            return res.redirect(`/instructors/${results.rows[0].id}`)
         })
 
     },
