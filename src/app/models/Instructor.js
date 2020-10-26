@@ -59,12 +59,12 @@ module.exports = {
     update(data, callback) {
         const query = `
             UPDATE instructors SET
-            avatar_url($1),
-            name($2),
-            birth($3),
-            education_level($4),
-            class_modality($5),
-            fit_area($6)
+            avatar_url=($1),
+            name=($2),
+            birth=($3),
+            education_level=($4),
+            class_modality=($5),
+            fit_area=($6)
             WHERE id = $7
         `
 
