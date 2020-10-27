@@ -205,6 +205,7 @@ a.buttom {
     display: block;
     padding: 40px;
     box-sizing: border-box;
+    
 }
 
 .table-container table {
@@ -250,12 +251,14 @@ tbody tr td:first-child span {
 tbody tr td:last-child a,
 .table-container > a {
     background-color: var(--primary-color);
-    padding: 8px 16px;
+    padding:8px 16px;
     text-decoration: none;
     color: white;
     font-size: 12px;
     border-radius: 6px;
     box-sizing: border-box;
+    white-space: nowrap;
+    
 }
 
 .table-container > a {

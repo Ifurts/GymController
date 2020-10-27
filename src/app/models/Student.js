@@ -5,7 +5,7 @@ const Intl = require('intl')
 module.exports = {
     all(callback) {
 
-            db.query(`SELECT * FROM instructors ORDER BY name ASC`, function(err, results){
+            db.query(`SELECT * FROM students`, function(err, results){
             if(err) throw `Database Error! + ${err}` 
 
 
@@ -16,15 +16,14 @@ module.exports = {
     create (data, callback) {
         
         const query = `
-            INSERT INTO instructors (
+            INSERT INTO students (
                 avatar_url,
                 name,
                 birth,
                 education_level,
-                class_modality,
-                fit_area,
-                created_at
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+                class_perweek,
+                email
+            ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id
         `
 
@@ -33,9 +32,8 @@ module.exports = {
             data.name,
             date(data.birth).iso,
             data.education_level,
-            data.class_modality,
-            data.fit_area,
-            date(Date.now()).iso,
+            data.class_perweek,
+            data.email,
         ]
 
 
@@ -50,7 +48,7 @@ module.exports = {
     find(id, callback) {
         db.query(`
         SELECT *
-        FROM instructors 
+        FROM students 
         WHERE id = $1`, [id], function(err, results){
             if(err) throw `Database Error! + ${err}`
             callback(results.rows[0])
@@ -58,13 +56,13 @@ module.exports = {
     },
     update(data, callback) {
         const query = `
-            UPDATE instructors SET
+            UPDATE students SET
             avatar_url=($1),
             name=($2),
             birth=($3),
             education_level=($4),
-            class_modality=($5),
-            fit_area=($6)
+            class_perweek=($5),
+            email=($6)
             WHERE id = $7
         `
 
@@ -73,8 +71,8 @@ module.exports = {
             data.name,
             date(data.birth).iso,
             data.education_level,
-            data.class_modality,
-            data.fit_area,
+            data.class_perweek,
+            data.email,
             data.id 
         ]
 
@@ -86,7 +84,7 @@ module.exports = {
     },
     
     delete(id, callback) {
-        db.query(`DELETE FROM instructors WHERE id = $1`, [id], function(err , results) {
+        db.query(`DELETE FROM students WHERE id = $1`, [id], function(err , results) {
             if(err) throw  `Database Error! + ${err}`
 
             return callback
