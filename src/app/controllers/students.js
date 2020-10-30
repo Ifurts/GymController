@@ -1,6 +1,7 @@
 const { age, date, graduation } = require('../../lib/utils')
 const Intl = require('intl')
 const Student = require('../models/Student')
+const db = require('../../config/db')
 
 module.exports = {
     index(req, res){
@@ -13,7 +14,14 @@ module.exports = {
         
     },
     create(req, res){
-        return res.render("students/create") 
+
+        Student.instructorsSelectOptions(function(options) {
+
+            return res.render("students/create", {instructorOptions: options}) 
+        })
+
+
+        
 
     },
     post(req, res){
@@ -50,8 +58,11 @@ module.exports = {
 
             student.birth = date(student.birth).iso
             
+            Student.instructorsSelectOptions(function(options) {
 
-            return res.render("students/edit", { student })
+                return res.render("students/edit", {student, instructorOptions: options}) 
+            })
+    
 
         })
     },
@@ -73,4 +84,11 @@ module.exports = {
             return res.redirect(`/students`)
         }) 
     },
+    instructorsSelectOptions(callback) {
+        db.query(`SELECT name, id FROM instructors`, function(err, results){
+            if(err) throw `Database Error! + ${err}`
+
+            callback(results.rows)
+        })
+    }
 }

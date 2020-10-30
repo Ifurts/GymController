@@ -9,6 +9,7 @@
             <tr>
                 <th>Instructor</th>
                 <th>Fit area</th>
+                <th>Students</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                     <span style="background-image: url({{instructor.avatar_url}})"></span>
                     {{instructor.name}}</td>
                 <td><span>{{instructor.fit_area}}</span></td>
+                <td>{{instructor.total_students}}</td>
                 <td><a href="/instructors/{{instructor.id}}">See Profile</a></td>
             </tr>
             {% endfor %}

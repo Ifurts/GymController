@@ -22,8 +22,9 @@ module.exports = {
                 birth,
                 education_level,
                 class_perweek,
-                email
-            ) VALUES ($1, $2, $3, $4, $5, $6)
+                email,
+                instructor_id
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7)
             RETURNING id
         `
 
@@ -34,6 +35,7 @@ module.exports = {
             data.education_level,
             data.class_perweek,
             data.email,
+            data.instructor
         ]
 
 
@@ -47,24 +49,25 @@ module.exports = {
 
     find(id, callback) {
         db.query(`
-        SELECT *
-        FROM students 
-        WHERE id = $1`, [id], function(err, results){
+        SELECT students.*, instructors.name AS instructor_name
+        FROM students
+        LEFT JOIN instructors ON (students.instructor_id = instructors.id) 
+        WHERE students.id = $1`, [id], function(err, results){
             if(err) throw `Database Error! + ${err}`
             callback(results.rows[0])
         })
     },
     update(data, callback) {
         const query = `
-            UPDATE students SET
+        UPDATE students SET
             avatar_url=($1),
             name=($2),
             birth=($3),
             education_level=($4),
             class_perweek=($5),
-            email=($6)
-            WHERE id = $7
-        `
+            email=($6),
+            instructor_id=($7), 
+        WHERE id = $8`
 
         const values = [
             data.avatar_url,
@@ -73,7 +76,8 @@ module.exports = {
             data.education_level,
             data.class_perweek,
             data.email,
-            data.id 
+            data.instructor,
+            data.id,
         ]
 
         db.query(query, values, function(err, results){
@@ -88,6 +92,13 @@ module.exports = {
             if(err) throw  `Database Error! + ${err}`
 
             return callback
+        })
+    },
+    instructorsSelectOptions(callback) {
+        db.query(`SELECT name, id FROM instructors`, function(err, results){
+            if(err) throw  `Database Error! + ${err}`
+
+            callback(results.rows)
         })
     }
 }
