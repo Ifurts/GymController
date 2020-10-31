@@ -66,7 +66,7 @@ module.exports = {
             education_level=($4),
             class_perweek=($5),
             email=($6),
-            instructor_id=($7), 
+            instructor_id=($7)
         WHERE id = $8`
 
         const values = [
