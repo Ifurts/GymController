@@ -3,7 +3,20 @@
 {% block content %}
 
 <div class="card table-container">
-    <a href="/instructors/create">Sign up as instructor</a>
+
+    <div class="header">
+       <a href="/instructors/create">Sign up as instructor</a>
+        <form action="/instructors" method="GET">
+            <input 
+            type="text" 
+            name="filter" 
+            placeholder="Name or Fit Area"
+            value={{filter}}
+            >
+            <button type="submit">Search</button>
+        </form>
+    </div>
+  
     <table width = "100%">
         <thead>
             <tr>

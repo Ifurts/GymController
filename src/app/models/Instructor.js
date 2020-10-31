@@ -13,7 +13,6 @@ module.exports = {
             ORDER BY total_students DESC`, function(err, results){
             if(err) throw `Database Error! + ${err}` 
 
-
             callback(results.rows)
         })
         
@@ -51,7 +50,6 @@ module.exports = {
         })
 
     },
-
     find(id, callback) {
         db.query(`
         SELECT *
@@ -59,6 +57,20 @@ module.exports = {
         WHERE id = $1`, [id], function(err, results){
             if(err) throw `Database Error! + ${err}`
             callback(results.rows[0])
+        })
+    },
+    findBy(filter, callback) {
+        db.query(`
+        SELECT instructors.*, count(students) AS total_students
+        FROM instructors
+        LEFT JOIN students ON (instructors.id = students.instructor_id)
+        WHERE instructors.name ILIKE '%${filter}%'
+        OR instructors.fit_area ILIKE '%${filter}%'
+        GROUP BY instructors.id
+        ORDER BY total_students DESC`, function(err, results){
+            if(err) throw `Database Error! + ${err}` 
+
+            callback(results.rows)
         })
     },
     update(data, callback) {
@@ -88,8 +100,7 @@ module.exports = {
 
             callback()
         })
-    },
-    
+    },   
     delete(id, callback) {
         db.query(`DELETE FROM instructors WHERE id = $1`, [id], function(err , results) {
             if(err) throw  `Database Error! + ${err}`
